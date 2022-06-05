@@ -105,6 +105,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .wrapper .header .header__item p {
   font-size: 1.5rem;
@@ -114,9 +117,31 @@ body {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
-.wrapper .main .main__form {
-  margin: auto;
+.wrapper .main .main__delete-all {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  margin-bottom: 3vh;
+  width: 10rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+.wrapper .main .main__delete-all:hover {
+  color: yellow;
+}
+.wrapper .main .main__parent .main__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -129,13 +154,13 @@ body {
           align-items: center;
   margin-bottom: 1.1rem;
 }
-.wrapper .main .main__form .main-form__error {
+.wrapper .main .main__parent .main__form .main-form__error {
   color: red;
   font-size: 0.9rem;
 }
-.wrapper .main .main__form .form__item {
+.wrapper .main .main__parent .main__form .form__item {
   margin-bottom: 0.625rem;
-  width: 50vw;
+  width: 40vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,33 +169,59 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.wrapper .main .main__form .form__item:last-child {
+.wrapper .main .main__parent .main__form .form__item:last-child {
   margin-bottom: 0;
 }
-.wrapper .main .main__form .form__item h3 {
+.wrapper .main .main__parent .main__form .form__item h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
-.wrapper .main .main__form .put {
+.wrapper .main .main__parent .main__form .put {
   background: transparent;
   border-bottom: 1px solid black;
   font-size: 1.2rem;
 }
-.wrapper .main .main__form .form__button {
+.wrapper .main .main__parent .main__form .form__button {
   padding: 5px;
   margin: auto;
   width: 6rem;
   background: black;
   color: white;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.wrapper .main .main__parent .main__form .form__button:hover {
+  color: yellow;
 }
 
 .footer {
   background-color: black;
   color: yellow;
-  padding: 0.625rem;
+  padding: 1.5rem;
 }
 
 a {
   text-decoration: none;
   color: white;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+a:hover {
+  color: yellow;
+}
+
+@media (max-width: 768px) {
+  .wrapper .main .main__form .form__item {
+    width: 70vw;
+  }
+}
+@media (max-width: 375px) {
+  .wrapper .main .main__form .form__item {
+    width: 90vw;
+  }
+}
+@media (max-width: 320px) {
+  .wrapper .main .main__form .form__item {
+    width: 95vw;
+  }
 }

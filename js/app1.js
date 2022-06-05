@@ -61,14 +61,12 @@ document.addEventListener('submit', function (event) {
         localStorage.setItem(`personData${sendCounter}`, JSON.stringify(objectData))
         // используется для "связи" двух js файлов
         localStorage.setItem('key', 'key')
+        // очищаем поля в localStorage    
+        localStorage.removeItem('name')
+        localStorage.removeItem('lastname')
+        localStorage.removeItem('email')
+        localStorage.removeItem('phone')
     }
-    
-    // очищаем поля в localStorage    
-    localStorage.removeItem('name')
-    localStorage.removeItem('lastname')
-    localStorage.removeItem('email')
-    localStorage.removeItem('phone')
-
 })
 
 sendCounter = Number(localStorage.getItem('sendCounter'))
@@ -95,21 +93,21 @@ function emailTest(input) {
 }
 
 
-// При потере фокуса запись в хранилище
-nameInput.addEventListener('blur', () => {
-    localStorage.setItem('name', nameInput.value)
+// слежка за изменениями в input'ах
+document.addEventListener('input', e => {
+    if (e.target.closest = nameInput) {
+        localStorage.setItem('name', nameInput.value)
+    }
+    if (e.target.closest = lastNameInput) {
+        localStorage.setItem('lastname', lastNameInput.value)
+    }
+    if (e.target.closest = emailInput) {
+        localStorage.setItem('email', emailInput.value)
+    }
+    if (e.target.closest = phoneInput) {
+        localStorage.setItem('phone', phoneInput.value)
+    }
 })
-lastNameInput.addEventListener('blur', () => {
-    localStorage.setItem('lastname', lastNameInput.value)
-})
-emailInput.addEventListener('blur', () => {
-    localStorage.setItem('email', emailInput.value)
-})
-phoneInput.addEventListener('blur', () => {
-    localStorage.setItem('phone', phoneInput.value)
-})
-
-
 
 // после перезгрузки заполенение полей формы данными из localStorage
 document.addEventListener('DOMContentLoaded', () => {
