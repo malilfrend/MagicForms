@@ -61,15 +61,16 @@ document.addEventListener('submit', function (event) {
         localStorage.setItem(`personData${sendCounter}`, JSON.stringify(objectData))
         // используется для "связи" двух js файлов
         localStorage.setItem('key', 'key')
-        // очищаем поля в localStorage    
-        localStorage.removeItem('name')
-        localStorage.removeItem('lastname')
-        localStorage.removeItem('email')
-        localStorage.removeItem('phone')
     }
+    // очищаем поля в localStorage      
+    localStorage.removeItem('name')
+    localStorage.removeItem('lastname')
+    localStorage.removeItem('email')
+    localStorage.removeItem('phone')
 })
 
 sendCounter = Number(localStorage.getItem('sendCounter'))
+
 // удаление предупреждающего объявления под email и name и lastname
 emailInput.addEventListener('focus', function (e) {
     if (emailInput.nextElementSibling) {
