@@ -60,8 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 emailPut.innerHTML = personData.email
                 phonePut.innerHTML = personData.phone
                 i += 1
-            }
-            
+            } 
         }
     }
 })
@@ -74,7 +73,7 @@ document.addEventListener('click', (e) => {
         localStorage.removeItem(`personData${deleteButton.parentElement.id}`)
         deleteButton.parentElement.remove()
     }
-    if (e.target.closest = mainDeleteAll) {
+    if (e.target.closest('.main__delete-all')) {
         localStorage.clear()
         mainDeleteAll.nextElementSibling.remove()
     }
@@ -84,26 +83,24 @@ document.addEventListener('click', (e) => {
 // функция для добавления карточки с данными
 function makeCard () {
     mainDeleteAll.nextElementSibling.insertAdjacentHTML('afterbegin',
-    `<div class="main__parent">    
-        <div class="main__form">
-            <div class="form__name form__item">
-                <h3>Name</h3>
-                <p class="name__put put"></p>
-            </div>
-            <div class="form__last-name form__item">
-                <h3>Lastname</h3>
-                <p class="lastname__put put"></p>
-            </div>
-            <div class="form__email form__item">
-                <h3>E-mail</h3>
-                <p class="email__put put"></p>
-            </div>
-            <div class="form__phone form__item">
-                <h3>Phone number</h3>
-                <p class="phone__put put"></p>
-            </div>
-            <button class="form__button" type="delete-button">Delete</button>
+    `<div class="main__form">
+        <div class="form__name form__item">
+            <h3>Name</h3>
+            <p class="name__put put"></p>
         </div>
+        <div class="form__last-name form__item">
+            <h3>Lastname</h3>
+            <p class="lastname__put put"></p>
+        </div>
+        <div class="form__email form__item">
+            <h3>E-mail</h3>
+            <p class="email__put put"></p>
+        </div>
+        <div class="form__phone form__item">
+            <h3>Phone number</h3>
+            <p class="phone__put put"></p>
+        </div>
+        <button class="form__button" type="delete-button">Delete</button>
     </div>`)
 }
 
