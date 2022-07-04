@@ -1,0 +1,130 @@
+@import 'null.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,500;1,800&display=swap');
+
+body {
+  height: 100%;
+  font-family: Montserrat, sans-serif;
+}
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  max-width: 100vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  .header {
+    background-color: black;
+    margin-bottom: 20px;
+    padding: 0.625rem;
+    .header__content {
+      max-width: 90vh;
+      margin: auto;
+    }
+    .header__item {
+      display: flex;
+      justify-content: center;
+      p {
+        font-size: 1.5rem;
+        margin: 0.625rem;
+      }
+    }
+  }
+  .main {
+    flex: 1 1 auto;
+    margin-bottom: 5vh;
+    .main__form {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .main-form__error {
+        color: red;
+        font-size: 0.9rem;
+      }
+      .form__item {
+        margin-bottom: 5vh;
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .label {
+          font-size: 1.2rem;
+        }
+      }
+      .input {
+        background: transparent;
+        border-bottom: 1px solid black;
+      }
+      .form__button {
+        padding: 5px;
+        margin: auto;
+        width: 6rem;
+        background: black;
+        color: white;
+        transition: all .3s;
+        &:hover {
+          color: yellow;
+        }
+      }
+    }
+    .form__name-empty {
+      color: red;
+      font-size: 0.9rem;
+    }
+    .form__lastname-empty {
+      color: red;
+      font-size: 0.9rem;
+    }
+  }
+  .footer {
+    background-color: black;
+    color: yellow;
+    padding: 1.5rem;
+  }
+}
+a {
+  text-decoration: none;
+  color: white;
+  transition: all .3s;
+  &:hover {
+    color: yellow;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    .main {
+      .main__form {
+        .form__item {
+          width: 90vw;
+        }
+      }
+    }
+  }
+  
+}
+@media (max-width: 375px) {
+  .wrapper {
+    .main {
+      .main__form {
+        .form__item {
+          width: 90vw;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 320px) {
+  .wrapper {
+    .main {
+      .main__form {
+        .form__item {
+          width: 95vw;
+        }
+      }
+    }
+  }
+  
+}
