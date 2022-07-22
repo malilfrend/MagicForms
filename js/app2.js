@@ -1,6 +1,7 @@
 const main = document.querySelector('.main')
 const mainDeleteAll = document.querySelector('.main__delete-all')
 
+
 window.addEventListener('storage', () => {
     if (localStorage.getItem('key')) {
 
@@ -22,11 +23,10 @@ window.addEventListener('storage', () => {
         const lastnamePut = document.querySelector('.lastname__put')
         const emailPut = document.querySelector('.email__put')
         const phonePut = document.querySelector('.phone__put')
+
         const personData = JSON.parse(localStorage.getItem(`personData${sendCounterHistory}`))
-        namePut.innerHTML = personData.name
-        lastnamePut.innerHTML = personData.lastname
-        emailPut.innerHTML = personData.email
-        phonePut.innerHTML = personData.phone
+        
+        setValuesInFields(personData, namePut, lastnamePut, emailPut, phonePut)
     }
 })
 
@@ -55,10 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const lastnamePut = document.querySelector('.lastname__put')
                 const emailPut = document.querySelector('.email__put')
                 const phonePut = document.querySelector('.phone__put')
-                namePut.innerHTML = personData.name
-                lastnamePut.innerHTML = personData.lastname
-                emailPut.innerHTML = personData.email
-                phonePut.innerHTML = personData.phone
+                // namePut.innerHTML = personData.name
+                // lastnamePut.innerHTML = personData.lastname
+                // emailPut.innerHTML = personData.email
+                // phonePut.innerHTML = personData.phone
+                setValuesInFields(personData, namePut, lastnamePut, emailPut, phonePut)
                 i += 1
             } 
         }
@@ -67,12 +68,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Кнопка для удаления формы и кнопка для удаления всех форм
 document.addEventListener('click', (e) => {
+
     const deleteButton = document.querySelector('.form__button')
+
     if (e.target.closest('.form__button')) {
         // получение id из элемента из localStorage, это нужно, чтобы удалить правильную карточку 
         localStorage.removeItem(`personData${deleteButton.parentElement.id}`)
         deleteButton.parentElement.remove()
     }
+
     if (e.target.closest('.main__delete-all')) {
         localStorage.clear()
         mainDeleteAll.nextElementSibling.remove()
@@ -104,3 +108,10 @@ function makeCard () {
     </div>`)
 }
 
+
+function setValuesInFields (personData, namePut, lastnamePut, emailPut, phonePut) {
+    namePut.innerHTML = personData.name
+    lastnamePut.innerHTML = personData.lastname
+    emailPut.innerHTML = personData.email
+    phonePut.innerHTML = personData.phone
+}
